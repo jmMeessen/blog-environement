@@ -1,0 +1,21 @@
+hugo:
+  #image: jojomi/hugo:latest
+  build: ./hugo-dockerfile
+  volumes:
+    - ./site/:/src
+    - ./output/:/output
+  environment:
+    - HUGO_REFRESH_TIME=3600
+    - HUGO_THEME=casper
+    - HUGO_BASEURL=http://localhost:5000
+  restart: always
+
+web:
+  image: jojomi/nginx-static
+  volumes:
+    - ./output:/var/www
+  environment:
+    - VIRTUAL_HOST=http://localhost:5000
+  ports:
+    - 5000:80
+  restart: always
