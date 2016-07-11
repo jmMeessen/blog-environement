@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/jmMeessen/blog-the-captains-shack.git
+	branch = master
+	commit = 4819af62cdee705881bf793e543c9456e64bd470
+	parent = b2faa353a217446a40500ad99cf31c75d0f913d9
+	cmdver = 0.3.0
