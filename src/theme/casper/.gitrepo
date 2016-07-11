@@ -4,8 +4,8 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = https://github.com/jmMeessen/blog-the-captains-shack.git
+	remote = https://github.com/vjeantet/hugo-theme-casper
 	branch = master
-	commit = ee9158c0596b8dbba29fa6a0f8fd8d3d53efd141
-	parent = 2743dee1dcfa9c36fde3f5cc3b412496958da2d2
+	commit = dce3389796a7e190553761dd623ec892f87ddb72
+	parent = 670a7abbabfba30bf99ed6e73d6c0c9136ef22d6
 	cmdver = 0.3.0
