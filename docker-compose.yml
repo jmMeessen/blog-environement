@@ -2,7 +2,7 @@ hugo:
   #image: jojomi/hugo:latest
   build: ./hugo-dockerfile
   volumes:
-    - ./site/:/src
+    - ./src/:/src
     - ./output/:/output
   environment:
     - HUGO_REFRESH_TIME=3600
