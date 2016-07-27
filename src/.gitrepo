@@ -6,6 +6,6 @@
 [subrepo]
 	remote = https://github.com/jmMeessen/blog-the-captains-shack.git
 	branch = master
-	commit = 9484d96f5e0756b7c3d3be2df9fc1400d9e288e0
-	parent = cd1d478984334ae74350628acc24cb5f9a84fab1
+	commit = 9e1e85ae1e623f1bcc281736c8b52ef908b43a9b
+	parent = 77a016c192250c1f4cc4955015a26f52cd74c383
 	cmdver = 0.3.0
