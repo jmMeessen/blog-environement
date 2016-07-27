@@ -5,12 +5,11 @@ hugo:
     - ./src/:/src
     - ./output/:/output
   environment:
-    - HUGO_REFRESH_TIME=3600
+    #- HUGO_WATCH=true
+    - HUGO_REFRESH_TIME=60
     - HUGO_THEME=casper
     - HUGO_BASEURL=http://localhost
   restart: always
-
-#docker run -d --name $(WEB_SRV_NAME) -v $(CURDIR):/www -p 80:80 fnichol/uhttpd
 
 web:
   image: fnichol/uhttpd
