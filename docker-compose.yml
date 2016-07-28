@@ -1,23 +1,29 @@
-hugo:
-  #image: jojomi/hugo:latest
-  build: ./hugo-dockerfile
-  volumes:
-    - ./src/:/src
-    - ./output/:/output
-  environment:
-    #- HUGO_WATCH=true
-    - HUGO_REFRESH_TIME=60
-    - HUGO_THEME=casper
-    - HUGO_BASEURL=http://localhost
-  restart: always
+version: '2'
+services:
+  hugo:
+    #image: jojomi/hugo:latest
+    build: ./hugo-dockerfile
+    volumes:
+      - hugo_src:/src
+      - ./output/:/output
+    environment:
+      #- HUGO_WATCH=true
+      - HUGO_REFRESH_TIME=60
+      - HUGO_THEME=casper
+      - HUGO_BASEURL=http://localhost
+    restart: always
 
-web:
-  image: fnichol/uhttpd
-  volumes:
-    - ./output:/www
-  ports:
-    - 80:80
-  restart: always
+  web:
+    image: fnichol/uhttpd
+    volumes:
+      - ./output:/www
+    ports:
+      - 80:80
+    restart: always
+
+volumes:
+  hugo_src:
+    driver: local
 
 #web:
 #  image: jojomi/nginx-static
