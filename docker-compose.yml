@@ -11,6 +11,7 @@ services:
       - HUGO_REFRESH_TIME=60
       - HUGO_THEME=casper
       - HUGO_BASEURL=http://localhost
+      - HUGO_BUILD_DRAFTS=yes
     restart: always
 
   web:

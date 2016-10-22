@@ -2,10 +2,17 @@
 
 WATCH="${HUGO_WATCH:=false}"
 SLEEP="${HUGO_REFRESH_TIME:=-1}"
+BUILD_DRAFTS="${HUGO_BUILD_DRAFTS:=false}"
 echo "HUGO_WATCH:" $WATCH
 echo "HUGO_REFRESH_TIME:" $HUGO_REFRESH_TIME
 echo "HUGO_THEME:" $HUGO_THEME
 echo "HUGO_BASEURL" $HUGO_BASEURL
+
+if [[ $BUILD_DRAFTS != 'false' ]]; then
+   draft_cmd="--buildDrafts"
+else
+   draft_cmd=""
+fi
 
 HUGO=/usr/bin/hugo
 
@@ -18,11 +25,11 @@ do
     if [[ $HUGO_WATCH != 'false' ]]; then
 	echo "Watching..."
         git -C /src pull	
-        $HUGO server --watch=true --source="/src" --theme="$HUGO_THEME" --destination="/output" --baseUrl="$HUGO_BASEURL" || exit 1
+        $HUGO server --watch=true ${draft_cmd} --source="/src" --theme="$HUGO_THEME" --destination="/output" --baseUrl="$HUGO_BASEURL" || exit 1
     else
 	echo "Building one time..."
         git -C /src pull
-        $HUGO --source="/src" --theme="$HUGO_THEME" --destination="/output" --baseUrl="$HUGO_BASEURL" || exit 1
+        $HUGO ${draft_cmd} --source="/src" --theme="$HUGO_THEME" --destination="/output" --baseUrl="$HUGO_BASEURL" || exit 1
     fi
 
     if [[ $HUGO_REFRESH_TIME == -1 ]]; then
