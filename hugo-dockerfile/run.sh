@@ -19,9 +19,8 @@ HUGO=/usr/bin/hugo
 
 rm -rf /src/*
 rm -rf /src/.git
-rm -rf /src/.*
+rm -rf /src/.gitignore
 git clone https://github.com/jmMeessen/blog-the-captains-shack.git /src
-
 
 while [ true ]
 do
