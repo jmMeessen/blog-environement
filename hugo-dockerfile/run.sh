@@ -21,6 +21,14 @@ rm -rf /src/*
 rm -rf /src/.git
 rm -rf /src/.gitignore
 git clone https://github.com/jmMeessen/blog-the-captains-shack.git /src
+if [ -z ${WORK_BRANCH+x} ]; then 
+   echo "processing master branch"; 
+else 
+   echo "Processing the '$WORK_BRANCH' branch";
+   git -C /src checkout --track origin/${WORK_BRANCH}
+fi
+
+
 
 while [ true ]
 do
